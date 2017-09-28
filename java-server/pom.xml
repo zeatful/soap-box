@@ -3,7 +3,6 @@
     xmlns="http://maven.apache.org/POM/4.0.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <name>Soap Box Server</name>
     <groupId>org.springframework</groupId>
     <artifactId>soap-box-docker</artifactId>
     <version>0.1.0</version>
@@ -33,10 +32,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-        </plugins>
-    </build>
-    <build>
-        <plugins>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
@@ -45,6 +40,8 @@
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
                 </configuration>
             </plugin>
+            <!-- For help refer to https://spring.io/guides/gs/spring-boot-docker/ -->
+            <!-- Generate the docker image using: mvn install dockerfile:builder-->
         </plugins>
     </build>
 </project>
