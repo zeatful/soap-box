@@ -6,17 +6,15 @@ services:
     build: ./ng-client
     volumes: 
       - ./ng-client:/usr/src/app
-    links:
-      - server
     ports: 
-      - 4200:4200
+      - "4200:4200"
   # build the spring boot container, depending on the database    
   server:
     build: ./java-server
     links:
       - db
     ports:
-      - 8080:8080
+      - "8080:8080"
   # create a mysql database container    
   db:
     image: mysql:latest
