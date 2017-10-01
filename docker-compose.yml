@@ -4,10 +4,16 @@ services:
   # build the angular 4 client, mapping source for development and depending on server
   client:
     build: ./ng-client
+    # using the first volume technically wipes out the node_modules when it mounts
+    # so we use a volume defined separately and mount it fix this issue
     volumes: 
       - ./ng-client:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
     ports: 
       - "4200:4200"
+    environment:
+     - NODE_ENV=dev
+
   # build the spring boot container, depending on the database    
   server:
     build: ./java-server
@@ -15,8 +21,13 @@ services:
       - db
     ports:
       - "8080:8080"
+
   # create a mysql database container    
   db:
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=welcome1
+
+# creates a volume soapbox_node_modules and re-uses it everytime the application is brought up
+volumes:
+  node_modules:
