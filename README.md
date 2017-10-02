@@ -8,7 +8,7 @@ To start the application locally for development just run the below command from
 
 `docker-compose up`
 
-We use docker-compose to orchestrate the docker containers for the angular 4 client, spring boot server and the mysql database.
+docker-compose orchestrates the docker containers for the Angular 4 client, Spring-Boot server and the MySql database.
 
 ### Running in production
 In production you will not need to mount a volume for source to be editable so there is a separate `docker-compose.yml` file for this purpose.  You can invoke it with the following command:
