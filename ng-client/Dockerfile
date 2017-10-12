@@ -4,8 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-RUN npm install
-
 EXPOSE 4200
 
-ENTRYPOINT ["npm", "start"]
+# Ensure that we install new dependencies everytime we start the container in addition to starting the app
+ENTRYPOINT npm install && npm start
