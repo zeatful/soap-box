@@ -13,7 +13,7 @@ docker-compose orchestrates the docker containers for the Angular 4 client, Spri
 ### Running in production
 In production you will not need to mount a volume for source to be editable so there is a separate `docker-compose.yml` file for this purpose.  You can invoke it with the following command:
 
-`docker-compose -f docker-compose-dev.yml`
+`docker-compose -f docker-compose-prod.yml`
 
 ## Deploying to production
 
