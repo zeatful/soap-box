@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-
 /*
  *
  By default, Spring Boot will enable JPA repository support and look in the package (and its subpackages)
@@ -29,16 +28,11 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class DatabaseConfiguration implements EnvironmentAware {
     private final Logger log = LoggerFactory.getLogger(DatabaseConfiguration.class);
-    private Environment env;
-
     private RelaxedPropertyResolver dataSourcePropertyResolver;
-    private RelaxedPropertyResolver liquiBasePropertyResolver;
 
     @Override
     public void setEnvironment(Environment env) {
-        this.env = env;
         this.dataSourcePropertyResolver = new RelaxedPropertyResolver(env, "spring.datasource.");
-        this.liquiBasePropertyResolver = new RelaxedPropertyResolver(env, "liquiBase.");
     }
 
     @Bean(destroyMethod = "")
