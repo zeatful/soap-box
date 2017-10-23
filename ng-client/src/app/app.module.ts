@@ -11,12 +11,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { ErrorHandler } from '@angular/core';
 import { AppErrorHandler } from './errors/app-error-handler';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -26,7 +30,8 @@ import { AppErrorHandler } from './errors/app-error-handler';
     HttpModule,
     // order mattersin the RouterModule arrays
     RouterModule.forRoot([
-      { path: '', component: AppComponent },
+      { path: '', component: HomeComponent },
+      { path: 'register', component: RegisterComponent },
       { path: '**', component: NotFoundComponent }// catch any other route and throw an error
     ])
   ],
