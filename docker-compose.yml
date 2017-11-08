@@ -24,9 +24,13 @@ services:
 
   # create a mysql database container    
   db:
-    image: mysql:latest
+    image: mysql
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=welcome1
+      - MYSQL_DATABASE=zeatful
+    ports:
+      - 3306:3306
 
 # creates a volume soapbox_node_modules and re-uses it everytime the application is brought up
 volumes:
