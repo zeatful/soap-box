@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /*
- *
  By default, Spring Boot will enable JPA repository support and look in the package (and its subpackages)
  where @SpringBootApplication is located. If your configuration has JPA repository interface definitions
  located in a package not visible, you can point out alternate packages using
